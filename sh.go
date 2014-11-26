@@ -54,6 +54,10 @@ type Session struct {
 	timeout time.Duration
 }
 
+func (s *Session) Commands() []*exec.Cmd {
+	return s.cmds
+}
+
 func (s *Session) writePrompt(args ...interface{}) {
 	var ps1 = fmt.Sprintf("[golang-sh]$")
 	args = append([]interface{}{ps1}, args...)
